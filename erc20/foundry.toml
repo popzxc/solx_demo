@@ -2,12 +2,14 @@
 src = "src"
 out = "out"
 libs = ["lib"]
-solc_version = "0.8.28"
 remappings = [
     "@solady-tokens/=lib/solady/src/tokens/",
     "forge-std/=lib/forge-std/src/",
     "solady/=lib/solady/src/",
 ]
+solc_version = "0.8.28"
+optimizer = true
+optimizer_runs = 20_000
 
 [profile.solx]
 solc_version = "../solx"

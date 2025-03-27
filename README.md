@@ -32,6 +32,9 @@ FOUNDRY_PROFILE=solx forge test
 Or you can do `export FOUNDRY_PROFILE=solx` to make it used by default within your terminal session.
 
 Please check which version is used for compilation: `0.8.28` corresponds to native `solc`, while `0.8.29` corresponds to `solx`.
+The main reason to use different versions of compiler is to force foundry to recompile contracts when switching profiles.
+`0.8.29` release of `solc` doesn't seem to have new optimizations, so it shouldn't affect comparisons. Feel free to compare
+with other versions yourself.
 
 `solx` is still very early in development. Here are some guidelines:
 
@@ -45,3 +48,21 @@ All the projects are configured to be using `solx` and will assume that it's pre
 
 - `sample_project`: a default `forge` project.
 - `erc20`: sample ERC20 token using [`solady`](https://github.com/Vectorized/solady) library.
+
+## Comparisons
+
+### Sample project, no optimizations
+
+TODO
+
+### Sample project, 20000 optimizer runs
+
+TODO
+
+### ERC20, no optimizations
+
+TODO
+
+### ERC20, 20000 optimizer runs
+
+TODO

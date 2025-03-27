@@ -26,4 +26,19 @@ contract MyTokenTest is Test {
         assertEq(token.balanceOf(to), 100);
         assertEq(token.balanceOf(address(this)), fromBefore - 100);
     }
+
+    function test_approve() public {
+        address spender = address(0x1);
+        token.approve(spender, 100);
+        assertEq(token.allowance(address(this), spender), 100);
+    }
+
+    function test_transferFrom() public {
+        address spender = address(0x1);
+        token.approve(spender, 100);
+
+        vm.prank(spender);
+        token.transferFrom(address(this), spender, 100);
+        assertEq(token.balanceOf(spender), 100);
+    }
 }
