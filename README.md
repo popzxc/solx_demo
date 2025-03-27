@@ -48,8 +48,16 @@ All the projects are configured to be using `solx` and will assume that it's pre
 
 - `sample_project`: a default `forge` project.
 - `erc20`: sample ERC20 token using [`solady`](https://github.com/Vectorized/solady) library.
+- `solmate`: copy of [`solmate`](https://github.com/transmissions11/solmate/) project, with compiler changed to `solc` 0.8.28 (for equivalence of benchmarks)
+  and pragma limitations lifted. ⚠️ requires foundry v0.3.0 to work (project not compatible with v1.0.0 yet).
 
 ## Comparisons
+
+There comparisons aren't meant to be considered proper benchmarks. Consider these comparisons to be "out-of-box", e.g. something
+user will get with default settings for both compilers. Do your own research, and compare compiler performance for your
+use case.
+
+In all the benchmarks, `solc` is on the left, `solx` is on the right.
 
 ### Sample project, no optimizations
 
@@ -66,3 +74,8 @@ TODO
 ### ERC20, 20000 optimizer runs
 
 TODO
+
+### `solmate`
+
+⚠️ Don't forget to install `foundry` 0.3.0 to run tests.
+
