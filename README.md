@@ -57,25 +57,38 @@ There comparisons aren't meant to be considered proper benchmarks. Consider thes
 user will get with default settings for both compilers. Do your own research, and compare compiler performance for your
 use case.
 
+Additionally, consider that `solx` is still in a pre-alpha stage and many optimizations are not implemented yet!
+
 In all the benchmarks, `solc` is on the left, `solx` is on the right.
 
 ### Sample project, no optimizations
 
-TODO
+![00](assets/00_sample_project_no_optimizer.png)
 
 ### Sample project, 20000 optimizer runs
 
-TODO
+![01](assets/01_sample_project_20000_runs.png)
 
 ### ERC20, no optimizations
 
-TODO
+![02](assets/02_erc20_no_optimizations.png)
 
 ### ERC20, 20000 optimizer runs
 
-TODO
+![03](assets/03_erc20_20000_runs.png)
 
 ### `solmate`
 
 ⚠️ Don't forget to install `foundry` 0.3.0 to run tests.
 
+`solmate` has a lot of tests, so we provide only a subset here. Run it yourself 😅
+
+![04](assets/04_solmate_weth.png)
+
+![05](assets/05_solmate_mock_erc20.png)
+
+![06](assets/06_solmate_mock_erc721.png)
+
+![07](assets/07_solmate_merkle_proof_lib.png)
+
+![08](assets/08_solmate_create3_factory.png)
