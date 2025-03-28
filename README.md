@@ -96,7 +96,7 @@ For now, we focus on legacy codegen, since `--via-ir` support in `solx` is less 
 
 ### Sample project, `solc` 20000 optimizer runs, `solx` `-03`, legacy
 
-![01](assets/01_sample_project_20000_runs.png)
+![01](assets/01_sample_project_legacy.png)
 
 ### ERC20, `solc` 20000 optimizer runs, `solx` `-03`, viaIR
 
@@ -104,4 +104,4 @@ For now, we focus on legacy codegen, since `--via-ir` support in `solx` is less 
 
 ### ERC20, `solc` 20000 optimizer runs, `solx` `-03`, legacy
 
-![03](assets/03_erc20_20000_runs.png)
+![03](assets/03_erc20_legacy.png)
