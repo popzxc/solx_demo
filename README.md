@@ -27,7 +27,7 @@ Here are the URLs for the test builds:
 Choose the appropriate URL, download it to current folder, and make it executable, e.g.:
 
 ```bash
-wget https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-linux-amd64-gnu-test-build-07 -O solx
+wget https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-linux-amd64-gnu -O solx
 chmod +x solx
 ```
 
