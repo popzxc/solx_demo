@@ -1,5 +1,7 @@
 # `solx` compiler demo
 
+[`solx`](https://github.com/matter-labs/solx) is a new optimizing compiler for EVM, developed by [Matter Labs](https://matter-labs.io/).
+
 This repository contains a playground to test `solx` capabilities.
 
 > [!WARNING]  
@@ -7,16 +9,25 @@ This repository contains a playground to test `solx` capabilities.
 
 ## Installing
 
+Install [foundry](https://book.getfoundry.sh/getting-started/installation) to interact with the projects.
+Foundry v1.0.0 can be used for `sample_project` and `erc20`, but Foundry v0.3.0 is required for `solmate`.
+
+If you already have Foundry v1.0.0 installed, you can use `foundryup` to install v0.3.0:
+
+```bash
+foundryup -v 0.3.0
+```
+
 Here are the URLs for the test builds:
 
-- [Linux/AMD64](https://github.com/matter-labs/solx/releases/download/eb46690/solx-linux-amd64-gnu-test-build-06)
-- [Linux/Arm64](https://github.com/matter-labs/solx/releases/download/eb46690/solx-linux-arm64-gnu-test-build-06)
-- [MacOS](https://github.com/matter-labs/solx/releases/download/eb46690/solx-macosx-test-build-06)
+- [Linux/AMD64](https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-linux-amd64-gnu-test-build-07)
+- [Linux/Arm64](https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-linux-arm64-gnu-test-build-07)
+- [MacOS](https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-macosx-test-build-07)
 
 Choose the appropriate URL, download it to current folder, and make it executable, e.g.:
 
 ```bash
-wget https://github.com/matter-labs/solx/releases/download/eb46690/solx-linux-amd64-gnu-test-build-06 -O solx
+wget https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-linux-amd64-gnu-test-build-07 -O solx
 chmod +x solx
 ```
 
@@ -41,6 +52,7 @@ with other versions yourself.
 - Run `forge build` before running tests, and run `forge clean` after running tests. Re-compilation of already built contracts may not work as expected.
 - `stack too deep` and `bytecode size is too big` errors may be very frequent; the work on optimizations required to prevent that is ongoing.
 - Only `forge build` & `forge test` were checked; `forge script` and other options may not work or work incorrectly.
+- Legacy codegen is more stable for now, `via_ir` does not work with `solmate` project.
 
 ## Project structure
 
@@ -60,24 +72,9 @@ use case.
 Additionally, consider that `solx` is still in a pre-alpha stage and many optimizations are not implemented yet!
 
 In all the benchmarks, `solc` is on the left, `solx` is on the right.
+For now, we focus on legacy codegen, since `--via-ir` support in `solx` is less stable. For instance, `solmate` currently cannot be compiled with `--via-ir`.
 
-### Sample project, no optimizations
-
-![00](assets/00_sample_project_no_optimizer.png)
-
-### Sample project, 20000 optimizer runs
-
-![01](assets/01_sample_project_20000_runs.png)
-
-### ERC20, no optimizations
-
-![02](assets/02_erc20_no_optimizations.png)
-
-### ERC20, 20000 optimizer runs
-
-![03](assets/03_erc20_20000_runs.png)
-
-### `solmate`
+### `solmate`, `solc` 1000000 optimizer runs, `solx` `-03`, legacy
 
 ⚠️ Don't forget to install `foundry` 0.3.0 to run tests.
 
@@ -92,3 +89,19 @@ In all the benchmarks, `solc` is on the left, `solx` is on the right.
 ![07](assets/07_solmate_merkle_proof_lib.png)
 
 ![08](assets/08_solmate_create3_factory.png)
+
+### Sample project, `solc` 20000 optimizer runs, `solx` `-03`, viaIR
+
+![00](assets/00_sample_project_via_ir.png)
+
+### Sample project, `solc` 20000 optimizer runs, `solx` `-03`, legacy
+
+![01](assets/01_sample_project_20000_runs.png)
+
+### ERC20, `solc` 20000 optimizer runs, `solx` `-03`, viaIR
+
+![02](assets/02_erc20_via_ir.png)
+
+### ERC20, `solc` 20000 optimizer runs, `solx` `-03`, legacy
+
+![03](assets/03_erc20_20000_runs.png)
