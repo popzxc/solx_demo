@@ -20,9 +20,9 @@ foundryup -v 0.3.0
 
 Here are the URLs for the test builds:
 
-- [Linux/AMD64](https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-linux-amd64-gnu-test-build-07)
-- [Linux/Arm64](https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-linux-arm64-gnu-test-build-07)
-- [MacOS](https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-macosx-test-build-07)
+- [Linux/AMD64](https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-linux-amd64-gnu)
+- [Linux/Arm64](https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-linux-arm64-gnu)
+- [MacOS](https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-macosx)
 
 Choose the appropriate URL, download it to current folder, and make it executable, e.g.:
 
