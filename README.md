@@ -1,4 +1,4 @@
-# `solx` compiler demo
+# `solx` Compiler Demo
 
 [`solx`](https://github.com/matter-labs/solx) is a new optimizing compiler for EVM, developed by [Matter Labs](https://matter-labs.io/).
 
@@ -20,14 +20,14 @@ foundryup -v 0.3.0
 
 Here are the URLs for the test builds:
 
-- [Linux/AMD64](https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-linux-amd64-gnu)
-- [Linux/Arm64](https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-linux-arm64-gnu)
-- [MacOS](https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-macosx)
+- [Linux/AMD64](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.2/solx-linux-amd64-gnu-v0.1.0-alpha.2)
+- [Linux/Arm64](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.2/solx-linux-arm64-gnu-v0.1.0-alpha.2)
+- [MacOS](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.2/solx-macosx-v0.1.0-alpha.2)
 
 Choose the appropriate URL, download it to current folder, and make it executable, e.g.:
 
 ```bash
-wget https://github.com/matter-labs/solx/releases/download/d5a98e5/solx-linux-amd64-gnu -O solx
+wget 'https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.2/solx-linux-amd64-gnu-v0.1.0-alpha.2' -O solx
 chmod +x solx
 ```
 
@@ -50,8 +50,8 @@ with other versions yourself.
 `solx` is still very early in development. Here are some guidelines:
 
 - Run `forge build` before running tests, and run `forge clean` after running tests. Re-compilation of already built contracts may not work as expected.
-- `stack too deep` and `bytecode size is too big` errors may be very frequent; the work on optimizations required to prevent that is ongoing.
-- Only `forge build` & `forge test` were checked; `forge script` and other options may not work or work incorrectly.
+- `stack too deep` and `bytecode size is too big` errors may be very frequent; some work on technical debt is still required to prevent them.
+- Only `forge build` and `forge test` have been checked; `forge script` and other options may not work or work incorrectly.
 - Legacy codegen is more stable for now, `via_ir` does not work with `solmate` project.
 
 ## Project structure
@@ -65,14 +65,13 @@ All the projects are configured to be using `solx` and will assume that it's pre
 
 ## Comparisons
 
-There comparisons aren't meant to be considered proper benchmarks. Consider these comparisons to be "out-of-box", e.g. something
+These comparisons aren't meant to be considered proper benchmarks. Consider these comparisons to be "out-of-box", e.g. something
 user will get with default settings for both compilers. Do your own research, and compare compiler performance for your
 use case.
 
 Additionally, consider that `solx` is still in a pre-alpha stage and many optimizations are not implemented yet!
 
 In all the benchmarks, `solc` is on the left, `solx` is on the right.
-For now, we focus on legacy codegen, since `--via-ir` support in `solx` is less stable. For instance, `solmate` currently cannot be compiled with `--via-ir`.
 
 ### `solmate`, `solc` 1000000 optimizer runs, `solx` `-03`, legacy
 
