@@ -20,14 +20,14 @@ foundryup -v 0.3.0
 
 Here are the URLs for the test builds:
 
-- [Linux/AMD64](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.3/solx-linux-amd64-gnu-v0.1.0-alpha.3)
-- [Linux/Arm64](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.3/solx-linux-arm64-gnu-v0.1.0-alpha.3)
-- [MacOS](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.3/solx-macosx-v0.1.0-alpha.3)
+- [Linux/AMD64](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-linux-amd64-gnu-v0.1.0-alpha.4)
+- [Linux/Arm64](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-linux-arm64-gnu-v0.1.0-alpha.4)
+- [MacOS](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-macosx-v0.1.0-alpha.4)
 
 Choose the appropriate URL, download it to current folder, and make it executable, e.g.:
 
 ```bash
-wget 'https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.3/solx-linux-amd64-gnu-v0.1.0-alpha.3' -O solx
+wget 'https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-linux-amd64-gnu-v0.1.0-alpha.4' -O solx
 chmod +x solx
 ```
 
