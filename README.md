@@ -1,11 +1,11 @@
 # `solx` Compiler Demo
 
-[`solx`](https://github.com/matter-labs/solx) is a new optimizing compiler for EVM, developed by [Matter Labs](https://matter-labs.io/).
+[`solx`](https://solx.zksync.io/) is a new optimizing compiler for EVM, developed by [Matter Labs](https://matter-labs.io/).
 
 This repository contains a playground to test `solx` capabilities.
 
 > [!WARNING]  
-> `solx` is in pre-alpha state and not suitable for production use.
+> `solx` is in alpha state and not suitable for production use.
 
 ## Installing
 
@@ -23,6 +23,7 @@ Here are the URLs for the test builds:
 - [Linux/AMD64](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-linux-amd64-gnu-v0.1.0-alpha.4)
 - [Linux/Arm64](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-linux-arm64-gnu-v0.1.0-alpha.4)
 - [MacOS](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-macosx-v0.1.0-alpha.4)
+- [Windows](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-windows-amd64-gnu-v0.1.0-alpha.4.exe)
 
 Choose the appropriate URL, download it to current folder, and make it executable, e.g.:
 
