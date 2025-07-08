@@ -1,11 +1,11 @@
 # `solx` Compiler Demo
 
-[`solx`](https://solx.zksync.io/) is a new optimizing compiler for EVM, developed by [Matter Labs](https://matter-labs.io/).
+[`solx`](https://solx.zksync.io/) is a new optimizing compiler for the EVM, developed by [Matter Labs](https://matter-labs.io/).
 
-This repository contains a playground to test `solx` capabilities.
+This repository contains a playground for testing `solx` capabilities.
 
 > [!WARNING]  
-> `solx` is in alpha state and not suitable for production use.
+> `solx` v0.1.0 is still in beta. It has already passed [all tests in these projects](https://github.com/matter-labs/solx/actions/runs/16133619145/attempts/1#summary-45527824432), but it should be used in production with care and good test coverage.
 
 ## Installing
 
@@ -20,15 +20,15 @@ foundryup -v 0.3.0
 
 Here are the URLs for the test builds:
 
-- [Linux/AMD64](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-linux-amd64-gnu-v0.1.0-alpha.4)
-- [Linux/Arm64](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-linux-arm64-gnu-v0.1.0-alpha.4)
-- [MacOS](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-macosx-v0.1.0-alpha.4)
-- [Windows](https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-windows-amd64-gnu-v0.1.0-alpha.4.exe)
+- [Linux/AMD64](https://github.com/matter-labs/solx/releases/download/0.1.0/solx-linux-amd64-gnu-v0.1.0)
+- [Linux/Arm64](https://github.com/matter-labs/solx/releases/download/0.1.0/solx-linux-arm64-gnu-v0.1.0)
+- [MacOS](https://github.com/matter-labs/solx/releases/download/0.1.0/solx-macosx-v0.1.0)
+- [Windows](https://github.com/matter-labs/solx/releases/download/0.1.0/solx-windows-amd64-gnu-v0.1.0.exe)
 
 Choose the appropriate URL, download it to current folder, and make it executable, e.g.:
 
 ```bash
-wget 'https://github.com/matter-labs/solx/releases/download/0.1.0-alpha.4/solx-linux-amd64-gnu-v0.1.0-alpha.4' -O solx
+wget 'https://github.com/matter-labs/solx/releases/download/0.1.0/solx-linux-amd64-gnu-v0.1.0' -O solx
 chmod +x solx
 ```
 
@@ -43,17 +43,14 @@ FOUNDRY_PROFILE=solx forge test
 
 Or you can do `export FOUNDRY_PROFILE=solx` to make it used by default within your terminal session.
 
-Please check which version is used for compilation: `0.8.28` corresponds to native `solc`, while `0.8.29` corresponds to `solx`.
+Please check which version is used for compilation: `0.8.28` corresponds to native `solc`, while `0.8.30` corresponds to `solx`.
 The main reason to use different versions of compiler is to force foundry to recompile contracts when switching profiles.
-`0.8.29` release of `solc` doesn't seem to have new optimizations, so it shouldn't affect comparisons. Feel free to compare
-with other versions yourself.
+Feel free to compare with other versions yourself.
 
-`solx` is still very early in development. Here are some guidelines:
+`solx` is still missing some features to work with Foundry as expected. Here are some guidelines:
 
 - Run `forge build` before running tests, and run `forge clean` after running tests. Re-compilation of already built contracts may not work as expected.
-- `stack too deep` and `bytecode size is too big` errors may be very frequent; some work on technical debt is still required to prevent them.
 - Only `forge build` and `forge test` have been checked; `forge script` and other options may not work or work incorrectly.
-- Legacy codegen is more stable for now, `via_ir` does not work with `solmate` project.
 
 ## Project structure
 
