@@ -61,44 +61,73 @@ All the projects are configured to be using `solx` and will assume that it's pre
 - `solmate`: copy of [`solmate`](https://github.com/transmissions11/solmate/) project, with compiler changed to `solc` 0.8.29 (for equivalence of benchmarks)
   and pragma limitations lifted. ⚠️ requires foundry v0.3.0 to work (project not compatible with v1.0.0 yet).
 
-## Comparisons
+## Performance Comparison
 
-These comparisons aren't meant to be considered proper benchmarks. Consider these comparisons to be "out-of-box", e.g. something
-user will get with default settings for both compilers. Do your own research, and compare compiler performance for your
-use case.
+> The tools below are only for the purposes of this demo.
+> For a more comprehensive gas comparison, please visit our our up-to-date [gas](https://matter-labs.github.io/solx/dashboard/) and [size](https://matter-labs.github.io/solx/codesize/0.1.0/) dashboards.
 
-Additionally, consider that `solx` is still in a pre-alpha stage and many optimizations are not implemented yet!
+At the root of each project, you can use `forge` to get gas reports for both `solc` and `solx`.
 
-In all the benchmarks, `solc` is on the left, `solx` is on the right.
+To see the `solc` report, run:
 
-### `solmate`, `solc` 1000000 optimizer runs, `solx` `-03`, legacy
+```bash
+forge test --gas-report
+```
 
-⚠️ Don't forget to install `foundry` 0.3.0 to run tests.
+Output example:
 
-`solmate` has a lot of tests, so we provide only a subset here. Run it yourself 😅
+```
+╭-----------------------------------+-----------------+-------+--------+-------+---------╮
+| src/tokens/WETH.sol:WETH Contract |                 |       |        |       |         |
++========================================================================================+
+| Deployment Cost                   | Deployment Size |       |        |       |         |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| 939688                            | 4638            |       |        |       |         |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+|                                   |                 |       |        |       |         |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| Function Name                     | Min             | Avg   | Median | Max   | # Calls |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| balanceOf                         | 527             | 1326  | 527    | 2527  | 1286    |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| deposit                           | 29088           | 35477 | 34688  | 68888 | 23909   |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| receive                           | 28940           | 34982 | 34540  | 68740 | 23400   |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| totalSupply                       | 362             | 1162  | 362    | 2362  | 1287    |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| withdraw                          | 29583           | 41663 | 41907  | 42027 | 23322   |
+╰-----------------------------------+-----------------+-------+--------+-------+---------╯
+```
 
-![04](assets/04_solmate_weth.png)
+For the `solx` report, specify the `solx` profile:
 
-![05](assets/05_solmate_mock_erc20.png)
+```bash
+FOUNDRY_PROFILE=solx forge test --gas-report
+```
 
-![06](assets/06_solmate_mock_erc721.png)
+Output example:
 
-![07](assets/07_solmate_merkle_proof_lib.png)
-
-![08](assets/08_solmate_create3_factory.png)
-
-### Sample project, `solc` 20000 optimizer runs, `solx` `-03`, viaIR
-
-![00](assets/00_sample_project_via_ir.png)
-
-### Sample project, `solc` 20000 optimizer runs, `solx` `-03`, legacy
-
-![01](assets/01_sample_project_legacy.png)
-
-### ERC20, `solc` 20000 optimizer runs, `solx` `-03`, viaIR
-
-![02](assets/02_erc20_via_ir.png)
-
-### ERC20, `solc` 20000 optimizer runs, `solx` `-03`, legacy
-
-![03](assets/03_erc20_legacy.png)
+```
+╭-----------------------------------+-----------------+-------+--------+-------+---------╮
+| src/tokens/WETH.sol:WETH Contract |                 |       |        |       |         |
++========================================================================================+
+| Deployment Cost                   | Deployment Size |       |        |       |         |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| 815946                            | 4084            |       |        |       |         |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+|                                   |                 |       |        |       |         |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| Function Name                     | Min             | Avg   | Median | Max   | # Calls |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| balanceOf                         | 409             | 1208  | 409    | 2409  | 1286    |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| deposit                           | 29017           | 35407 | 34617  | 68817 | 24193   |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| receive                           | 28836           | 34848 | 34436  | 68636 | 23880   |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| totalSupply                       | 321             | 1121  | 321    | 2321  | 1287    |
+|-----------------------------------+-----------------+-------+--------+-------+---------|
+| withdraw                          | 29402           | 41475 | 41750  | 41846 | 23357   |
+╰-----------------------------------+-----------------+-------+--------+-------+---------╯
+```
