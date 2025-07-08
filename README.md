@@ -34,7 +34,7 @@ chmod +x solx
 
 ## Using with forge
 
-By default, all the projects will use native `solc` 0.8.28, to compile with `solx` use `FOUNDRY_PROFILE=solx`, e.g.:
+By default, all the projects will use native `solc` 0.8.29, to compile with `solx` use `FOUNDRY_PROFILE=solx`, e.g.:
 
 ```bash
 FOUNDRY_PROFILE=solx forge build
@@ -43,7 +43,7 @@ FOUNDRY_PROFILE=solx forge test
 
 Or you can do `export FOUNDRY_PROFILE=solx` to make it used by default within your terminal session.
 
-Please check which version is used for compilation: `0.8.28` corresponds to native `solc`, while `0.8.30` corresponds to `solx`.
+Please check which version is used for compilation: `0.8.29` corresponds to native `solc`, while `0.8.30` corresponds to `solx`.
 The main reason to use different versions of compiler is to force foundry to recompile contracts when switching profiles.
 Feel free to compare with other versions yourself.
 
@@ -58,7 +58,7 @@ All the projects are configured to be using `solx` and will assume that it's pre
 
 - `sample_project`: a default `forge` project.
 - `erc20`: sample ERC20 token using [`solady`](https://github.com/Vectorized/solady) library.
-- `solmate`: copy of [`solmate`](https://github.com/transmissions11/solmate/) project, with compiler changed to `solc` 0.8.28 (for equivalence of benchmarks)
+- `solmate`: copy of [`solmate`](https://github.com/transmissions11/solmate/) project, with compiler changed to `solc` 0.8.29 (for equivalence of benchmarks)
   and pragma limitations lifted. ⚠️ requires foundry v0.3.0 to work (project not compatible with v1.0.0 yet).
 
 ## Comparisons
