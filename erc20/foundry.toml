@@ -7,7 +7,7 @@ remappings = [
     "forge-std/=lib/forge-std/src/",
     "solady/=lib/solady/src/",
 ]
-solc_version = "0.8.28"
+solc_version = "0.8.29"
 optimizer = true
 optimizer_runs = 20_000
 # via_ir = true # Uncomment to use via IR
